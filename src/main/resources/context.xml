@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="shakespearQuoter" class="quoters.ShakespearQuoter">
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+    <bean class="quoters.MyLoggerListener"/>
+    <bean class="quoters.InjectRandomIntAnnotationBeanPostProcessor"/>
+    <context:annotation-config/>
+
+    <bean id="abc" class="java.lang.String">
+        <constructor-arg value="come with me if you want to live"/>
+    </bean>
+    <bean id="robot" class="quoters.TalkingRobotImpl">
+        <property name="quoters">
+            <list>
+               <ref bean="shakespearQuoter"/>
+               <ref bean="terminatorQuoter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="shakespearQuoter" class="quoters.ShakespearQuoter" destroy-method="memntoMory">
         <property name="message" value="2 B || ! 2 B"/>
     </bean>
-    <bean id="terminatorQuoter" class="quoters.TerminatorQuoter">
+    <bean id="terminatorQuoter" class="quoters.TerminatorQuoter" destroy-method="killAll">
         <property name="messages">
             <list>
                 <value>I'll be back</value>
+                <ref bean="abc"/>
                 <value>Astalavista baby</value>
             </list>
         </property>
