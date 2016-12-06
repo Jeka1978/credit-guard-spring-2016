@@ -7,7 +7,23 @@
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
     <bean class="quoters.MyLoggerListener"/>
     <bean class="quoters.InjectRandomIntAnnotationBeanPostProcessor"/>
-    <context:annotation-config/>
+    <bean class="quoters.BeanDefinitionsAnalyzerBeanFactoryPostProcessor"/>
+
+
+    <context:component-scan base-package="quoters"/>
+
+    <bean id="integerFactory" class="quoters.IntegerFactory">
+        <constructor-arg value="100"/>
+    </bean>
+
+    <bean class="java.lang.Integer"
+          factory-bean="integerFactory"
+          factory-method="getRandomInt"/>
+
+    <bean class="java.util.Calendar" factory-method="getInstance"/>
+
+
+    <context:property-placeholder location="classpath:qoutes.properties"/>
 
     <bean id="abc" class="java.lang.String">
         <constructor-arg value="come with me if you want to live"/>
@@ -21,9 +37,9 @@
         </property>
     </bean>
     <bean id="shakespearQuoter" class="quoters.ShakespearQuoter" destroy-method="memntoMory">
-        <property name="message" value="2 B || ! 2 B"/>
+        <property name="message" value="${shake}"/>
     </bean>
-    <bean id="terminatorQuoter" class="quoters.TerminatorQuoter" destroy-method="killAll">
+    <bean id="terminatorQuoter" class="quoters.TerminatorQuoter" scope="prototype" destroy-method="killAll">
         <property name="messages">
             <list>
                 <value>I'll be back</value>

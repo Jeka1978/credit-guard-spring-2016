@@ -1,5 +1,6 @@
 package stam;
 
+import lombok.Builder;
 import lombok.Setter;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
@@ -8,15 +9,10 @@ import org.springframework.stereotype.Component;
  * Created by Evegeny on 29/11/2016.
  */
 @Component
-@Conditional(OnPersonCondition.class)
+@Builder
 public class Person {
 
 
-    public void setName(String name) {
-    }
-
-    public void setAge(int age) {
-    }
 }
 
 
