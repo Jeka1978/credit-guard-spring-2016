@@ -29,24 +29,11 @@
         <constructor-arg value="come with me if you want to live"/>
     </bean>
     <bean id="robot" class="quoters.TalkingRobotImpl">
-        <property name="quoters">
-            <list>
-               <ref bean="shakespearQuoter"/>
-               <ref bean="terminatorQuoter"/>
-            </list>
-        </property>
+
     </bean>
-    <bean id="shakespearQuoter" class="quoters.ShakespearQuoter" destroy-method="memntoMory">
-        <property name="message" value="${shake}"/>
-    </bean>
+
     <bean id="terminatorQuoter" class="quoters.TerminatorQuoter" scope="prototype" destroy-method="killAll">
-        <property name="messages">
-            <list>
-                <value>I'll be back</value>
-                <ref bean="abc"/>
-                <value>Astalavista baby</value>
-            </list>
-        </property>
+
     </bean>
 
 
