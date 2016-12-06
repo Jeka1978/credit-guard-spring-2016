@@ -1,4 +1,4 @@
-package qualifiers;
+package neveruseswitch;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
