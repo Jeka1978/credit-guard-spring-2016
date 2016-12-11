@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
  * Created by Evegeny on 11/12/2016.
  */
 @Repository
-@Profile("amazon")
+@Windows(false)
 public class AmazonDao implements Dao {
     @Override
     public void save() {

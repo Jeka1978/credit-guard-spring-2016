@@ -19,13 +19,22 @@ import java.util.List;
  * Created by Evegeny on 29/11/2016.
  */
 @Setter
+@Component
 public class TalkingRobotImpl implements TalkingRobot {
 
     @Autowired
     private List<Quoter> quoters;
+
+    @Autowired
+    private StamService stamService;
+
     @Override
     @PostConstruct
     public void talk() {
+        stamService.saySomething();
+        for (Quoter quoter : quoters) {
+            System.out.println(quoter.getClass());
+        }
         quoters.forEach(Quoter::sayQuote);
     }
 

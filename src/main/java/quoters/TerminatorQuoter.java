@@ -4,6 +4,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PreDestroy;
 import java.util.Arrays;
@@ -13,7 +14,7 @@ import java.util.List;
  * Created by Evegeny on 29/11/2016.
  */
 @Order(1)
-@QuoterCategory(Type.FILMS)
+@Component
 public class TerminatorQuoter implements Quoter {
 
     private List<String> messages;

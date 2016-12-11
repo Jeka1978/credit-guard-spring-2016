@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
  * Created by Evegeny on 11/12/2016.
  */
 @Repository
-@Profile("local")
+@Windows(true)
+//@Profile("local")  // spring.profiles.active=local
 public class LocalDao implements Dao {
     @Override
     public void save() {

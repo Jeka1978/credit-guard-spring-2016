@@ -1,0 +1,15 @@
+
+
+
+RequestService -> RequestParser -> return object to Request Service
+RequestParser have several Mappers
+"ahsrait"->XmlMapper
+"jsonrait"->JsonMapper
+"other" -> FileMapper
+RequestService validate the Object with several validators and send the object
+
+if we have ParsedException -> stop the process
+
+if TimeOutException -> try again
+
+if LogException happends than continue, but send sms to project director
