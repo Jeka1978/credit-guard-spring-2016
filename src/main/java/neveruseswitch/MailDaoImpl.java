@@ -14,7 +14,7 @@ public class MailDaoImpl implements MailDao {
 
     @Override
     public int mailCode() {
-        int mailCode = random.nextInt(2) + 1;
+        int mailCode = random.nextInt(3) + 1;
         return mailCode;
     }
 }
