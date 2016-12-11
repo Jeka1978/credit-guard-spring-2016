@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * Created by Evegeny on 06/12/2016.
  */
 @Service
-public class MailSender {
+public class SmsSender {
 
     @Autowired
     private MessageCodeDao messageCodeDao;
@@ -23,9 +23,12 @@ public class MailSender {
         MessageBuilder messageBuilder = builderFactory.getMessageBuilder(messageCode);
         String body = messageBuilder.buildBody();
         send(body);
+
+
+
     }
 
     private void send(String body) {
-        System.out.println("sending mail... "+body);
+        System.out.println("sending sms... "+body);
     }
 }
