@@ -13,8 +13,7 @@ import java.util.Random;
 /**
  * Created by Evegeny on 11/12/2016.
  */
-@Component
-public class ColorFrame extends JFrame {
+public abstract class ColorFrame extends JFrame {
 
     private Random random = new Random();
 
@@ -33,20 +32,13 @@ public class ColorFrame extends JFrame {
     }
 
     public void moveToRandomLocation(){
+        color = getColorBean();
         setLocation(random.nextInt(1000),random.nextInt(800));
         getContentPane().setBackground(color);
         repaint();
     }
 
-
-
-
-
-
-
-
-
-
+    protected abstract Color getColorBean();
 
 
 }

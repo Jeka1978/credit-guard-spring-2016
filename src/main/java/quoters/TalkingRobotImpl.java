@@ -22,7 +22,6 @@ import java.util.List;
 public class TalkingRobotImpl implements TalkingRobot {
 
     @Autowired
-    @Films
     private List<Quoter> quoters;
     @Override
     @PostConstruct
