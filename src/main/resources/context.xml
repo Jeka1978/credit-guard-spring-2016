@@ -32,9 +32,10 @@
 
     </bean>
 
-    <bean id="terminatorQuoter" class="quoters.TerminatorQuoter" scope="prototype" destroy-method="killAll">
+    <bean id="terminatorQuoter"  class="quoters.TerminatorQuoter" scope="prototype" destroy-method="killAll">
 
     </bean>
+
 
 
 </beans>
